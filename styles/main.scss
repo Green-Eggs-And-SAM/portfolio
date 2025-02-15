@@ -1,0 +1,36 @@
+* {
+    border: 1px dotted green;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: black;
+    margin: 2rem;
+    color: yellow;
+
+    font-family: "Iceberg", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.title-name {
+    display: flex;
+    justify-content: center;
+
+    &__image {
+        width: 50%;
+    }
+}
