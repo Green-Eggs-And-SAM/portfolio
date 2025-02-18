@@ -13,6 +13,7 @@
 
 let lastX = 0.0;
 let lastY = 0.0;
+let lastScrollY = 0.0;
 let foreground;
 let midground;
 let background;
@@ -23,22 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
     lastX = 0.0;
     lastY = 0.0;
 });
-document.addEventListener("mousemove", function (event) {
-    let dX = parseFloat(event.screenX - lastX);
-    let dY = parseFloat(event.screenY - lastY);
-    lastX = event.screenX;
-    lastY = event.screenY;
-    moveElement(foreground, dX, dY, 180.0);
-    moveElement(midground, dX, dY, 120.0);
-    moveElement(background, dX, dY, 60.0);
-});
 
 function createIMG(source, z) {
     let newIMG = document.createElement("img");
     newIMG.src = source;
     newIMG.style.zIndex = z;
     newIMG.style.rotate = `${z * 90}deg`;
-    newIMG.style.position = "absolute";
+    newIMG.style.position = "fixed";
     newIMG.style.minWidth = `120vw`;
     newIMG.style.minHeight = `120vh`;
     // newIMG.style.backgroundColor = color;
@@ -49,6 +41,30 @@ function createIMG(source, z) {
     return newIMG;
 }
 
+document.addEventListener("mousemove", function (event) {
+    let dX = parseFloat(event.screenX - lastX);
+    let dY = parseFloat(event.screenY - lastY);
+    lastX = event.screenX;
+    lastY = event.screenY;
+    moveElement(foreground, dX, dY, 200.0);
+    moveElement(midground, dX, dY, 140.0);
+    moveElement(background, dX, dY, 80.0);
+});
+
+document.addEventListener("scroll", (e) => {
+    const scrollTop = window.scrollY; //|| document.documentElement.scrollTop;
+    // console.log("Scrolled distance:", scrollTop, "px");
+    // elem.style.transform = `translateY(${-dY / coeff}px)`;
+    // let dY = parseFloat(event.screenY - lastY);
+
+    let dY = parseFloat(scrollTop - lastScrollY);
+    lastScrollY = scrollTop;
+
+    scrollElement(foreground, dY, 6.0);
+    scrollElement(midground, dY, 12.0);
+    scrollElement(background, dY, 18.0);
+});
+
 function moveElement(elem, dX, dY, coeff) {
     let currentLeft = parseFloat(elem.style.left) || 0.0;
     let currentTop = parseFloat(elem.style.top) || 0.0;
@@ -58,4 +74,16 @@ function moveElement(elem, dX, dY, coeff) {
 
     elem.style.left = `${finalX}px`;
     elem.style.top = `${finalY}px`;
+}
+
+// function scrollElement(elem, dY, coeff) {
+
+//     elem.style.transform = `translateY(${-dY / coeff}px)`;
+// }
+
+function scrollElement(elem, dY, coeff) {
+    let currentTop = parseFloat(elem.style.top) || 0.0;
+    let finalY = currentTop - dY / coeff;
+    elem.style.top = `${finalY}px`;
+    console.log(finalY);
 }
