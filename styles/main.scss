@@ -10,7 +10,7 @@ h1 {
 body {
     background-color: black;
     margin: 2rem;
-    color: yellow;
+    color: rgb(0, 255, 0);
 
     font-family: "Iceberg", serif;
     font-weight: 400;
@@ -20,6 +20,10 @@ body {
 
 li {
     list-style-type: none;
+    &:hover {
+        font-style: underline;
+        font-size: 60px;
+    }
 }
 
 ul {
