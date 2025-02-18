@@ -28,8 +28,8 @@ document.addEventListener("mousemove", function (event) {
     let dY = parseFloat(event.screenY - lastY);
     lastX = event.screenX;
     lastY = event.screenY;
-    moveElement(foreground, dX, dY, 140.0);
-    moveElement(midground, dX, dY, 100.0);
+    moveElement(foreground, dX, dY, 180.0);
+    moveElement(midground, dX, dY, 120.0);
     moveElement(background, dX, dY, 60.0);
 });
 
