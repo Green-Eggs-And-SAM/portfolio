@@ -1,0 +1,66 @@
+* {
+    border: 1px dotted green;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    color: yellow;
+
+    font-family: "Iceberg", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+li {
+    list-style-type: none;
+    &:hover {
+        font-style: underline;
+        font-size: 60px;
+    }
+}
+
+ul {
+    padding: 0;
+}
+
+.title-name {
+    display: flex;
+    justify-content: center;
+
+    &__image {
+        width: 50%;
+    }
+}
+
+.header {
+    width: 100vw;
+    // height: 30px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__row-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.focus {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(50px);
+}
