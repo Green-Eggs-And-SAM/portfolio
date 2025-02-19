@@ -9,7 +9,8 @@ h1 {
 
 body {
     background-color: black;
-    margin: 2rem;
+    padding: 0;
+    margin: 0;
     color: yellow;
 
     font-family: "Iceberg", serif;
@@ -25,7 +26,7 @@ li {
     list-style-type: none;
     &:hover {
         font-style: underline;
-        font-size: 60px;
+        font-weight: 800;
     }
 }
 
@@ -33,29 +34,54 @@ ul {
     padding: 0;
 }
 
+header {
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
 .title-name {
     display: flex;
     justify-content: center;
 
+    // padding-top: 2rem;
     &__image {
         width: 50%;
     }
 }
 
-.footer {
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.sub-header {
     width: 100vw;
     // height: 30px;
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     display: flex;
+    // flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(50px);
+
     &__row-container {
         display: flex;
         flex-direction: row;
+    }
+}
+
+.blur {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(50px);
+}
+
+.extra-padding {
+    &__top {
+        padding-top: 3rem;
     }
 }
